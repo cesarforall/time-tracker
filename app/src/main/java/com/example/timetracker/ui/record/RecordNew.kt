@@ -26,6 +26,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.timetracker.R
+import com.example.timetracker.ui.components.Timer
+import com.example.timetracker.ui.components.TimerViewModel
 import com.example.timetracker.ui.theme.TimeTrackerTheme
 
 @Composable
@@ -60,38 +62,10 @@ fun RecordNewBody(
                 onValueChange = {},
                 label = { Text(text = stringResource(R.string.title)) }
             )
-            Text(
-                text = "00:00:00",
-                style = MaterialTheme.typography.displayLarge
+            Timer(
+                timerViewModel = TimerViewModel(),
+                modifier = Modifier.padding(dimensionResource(id = R.dimen.medium))
             )
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.small)),
-                modifier = Modifier
-            ) {
-                Button(
-                    onClick = { /*TODO*/ }
-                ) {
-                    Text(
-                        text = stringResource(R.string.start),
-                        modifier = Modifier
-                            .padding(dimensionResource(R.dimen.extra_small))
-                    )
-                }
-                Button(onClick = { /*TODO*/ }) {
-                    Text(
-                        text = stringResource(R.string.pause),
-                        modifier = Modifier
-                            .padding(dimensionResource(R.dimen.extra_small))
-                    )
-                }
-                Button(onClick = { /*TODO*/ }) {
-                    Text(
-                        text = stringResource(R.string.stop),
-                        modifier = Modifier
-                            .padding(dimensionResource(R.dimen.extra_small))
-                        )
-                }
-            }
         }
 
     }
