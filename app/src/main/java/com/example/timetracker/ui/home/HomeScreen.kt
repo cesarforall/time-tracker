@@ -30,11 +30,12 @@ import com.example.timetracker.ui.theme.TimeTrackerTheme
 
 @Composable
 fun HomeScreen(
+    navigateToRecordNew: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Scaffold(
         topBar = { TimeTrackerTopAppBar() },
-        floatingActionButton = { NewRecordButton() }
+        floatingActionButton = { NewRecordButton(onAddButtonClick = navigateToRecordNew) }
     ) { innerPadding ->
         HomeBody(
             modifier = modifier
@@ -87,7 +88,9 @@ fun RecordItem(
     recordItem: RecordItem,
     modifier: Modifier = Modifier
 ) {
-    Column {
+    Column(
+        modifier = modifier
+    ) {
         ListItem(
             headlineContent = { Text(text = recordItem.title) },
             supportingContent = {
@@ -109,7 +112,9 @@ fun RecordItem(
                 }
             },
             trailingContent = {
-                IconButton(onClick = { /*TODO*/ }) {
+                IconButton(
+                    onClick = { /*TODO*/ }
+                ) {
                     Icon(
                         imageVector = Icons.Outlined.QueryStats,
                         contentDescription = "",
@@ -125,9 +130,11 @@ fun RecordItem(
 }
 
 @Composable
-fun NewRecordButton() {
+fun NewRecordButton(
+    onAddButtonClick: () -> Unit
+) {
     FloatingActionButton(
-        onClick = { /*TODO*/ }
+        onClick = onAddButtonClick
     ) {
         Icon(imageVector = Icons.Default.Add , contentDescription = "Add new record")
     }
@@ -138,7 +145,7 @@ fun NewRecordButton() {
 @Composable
 fun HomeScreenPreview() {
     TimeTrackerTheme {
-        HomeScreen()
+        HomeScreen(navigateToRecordNew = {})
     }
 }
 

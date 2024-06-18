@@ -2,4 +2,9 @@
     <string name="app_name">Time Tracker</string>
     <string name="time">Time</string>
     <string name="tracker">Tracker</string>
+    <string name="new_record">New Record</string>
+    <string name="title">Title</string>
+    <string name="start">Start</string>
+    <string name="pause">Pause</string>
+    <string name="stop">Stop</string>
 </resources>
